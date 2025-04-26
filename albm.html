@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        button{
+            padding:20px 25px;
+            font-size:18px;
+            margin:20px;
+            cursor: pointer 
+        }
+        img{
+            width:400px;
+            height:500px;
+            border-radius:10px;
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <h2> Image Changer</h2>
+    <img id="image" alt="1d">
+    <br>
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage">Next</button>
+<script>
+    const images=[
+        "https://i.pinimg.com/474x/6e/5f/d8/6e5fd8abd12708459aac601f92e18800.jpg",
+        "https://i.pinimg.com/474x/2a/fb/c7/2afbc7330c27de1174d243bdff245302.jpg"
+       ];
+    let currentIndex=0;
+    window.onload=function(){
+        document.getElementById('image').src=images[currentIndex]
+    };
+    function nextImage(){
+        currentIndex=(currentIndex-1 + images.length)%images.length;
+        //1-1=0%3=>0
+        document.getElementById('image').src=images[currentIndex];//0
+
+    }
+    function prevImage(){
+        currentIndex=(currentIndex-1 + images.length)%images.length;
+        document.getElementById('image').src=images[currentIndex];
+    }
+
+</script>
+
+
+
+
+    <script src="albm.js"></script>
+</body>
+</html>
